@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>{{ msg }}</h2>
+    <h2>{{ title }}</h2>
     <md-layout :md-gutter="24">
      <md-layout md-flex-xsmall="100" md-flex-medium="50" md-flex-large="33">
      <md-card>
@@ -17,7 +17,7 @@
       </md-card-content>
 
       <md-card-actions>
-        <md-button>Action</md-button>
+        <md-button>Read more</md-button>
       </md-card-actions>
     </md-card>
   </md-layout>
@@ -36,7 +36,7 @@
       </md-card-content>
 
       <md-card-actions>
-        <md-button>Action</md-button>
+        <md-button>Read more</md-button>
       </md-card-actions>
     </md-card>
   </md-layout>
@@ -55,7 +55,7 @@
       </md-card-content>
 
       <md-card-actions>
-        <md-button>Action</md-button>
+        <md-button>Read more</md-button>
       </md-card-actions>
     </md-card>
   </md-layout>
@@ -74,7 +74,7 @@
       </md-card-content>
 
       <md-card-actions>
-        <md-button>Action</md-button>
+        <md-button>Read more</md-button>
       </md-card-actions>
     </md-card>
   </md-layout>
@@ -93,7 +93,7 @@
       </md-card-content>
 
       <md-card-actions>
-        <md-button>Action</md-button>
+        <md-button>Read more</md-button>
       </md-card-actions>
     </md-card>
   </md-layout>
@@ -103,33 +103,23 @@
 </template>
 
 <script>
+/* global firebase */
   export default {
     name: 'hello',
     data () {
       return {
-        msg: 'Новини'
+        title: 'Новини'
       }
+    },
+    created () {
+      const db = firebase.database()
+
+      console.log('created', db.ref())
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  h1, h2 {
-    font-weight: normal;
-  }
 
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
-  }
 </style>
