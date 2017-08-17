@@ -1,0 +1,25 @@
+.md-sidenav-content {
+	.md-toolbar {
+		background: url("../assets/images/side-img.jpg") no-repeat center;
+		background-size: cover;
+	}
+	nav {
+		li {
+			margin: 0;
+		}
+		.md-list-item a{
+				display: block;
+				border-bottom: 1px solid #3f51b5;
+				margin: 0;
+				padding: 15px 0 15px 30px;
+				text-transform: uppercase;
+				color: #3f51b5;
+				font-weight: 500;
+				&:hover {
+					background: #ededed;
+					text-decoration: none;
+					color: #363636
+				}
+			}
+	}
+}

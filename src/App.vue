@@ -14,15 +14,14 @@
         </div>
       </md-toolbar>
       <nav>
-        <ul>
-          <li><router-link to="/">Новини</router-link></li>
-          <li><router-link to="/top">Вища ліга</router-link></li>
-          <li><router-link to="/first">Перша ліга</router-link></li>
-          <li><router-link to="/second">Друга ліга</router-link></li>
+        <ul class="md-list">
+          <li class="md-list-item"><router-link to="/">Новини</router-link><md-ink-ripple /></li>
+
+          <li class="md-list-item"><router-link to="/top">Вища ліга</router-link><md-ink-ripple /></li>
+          <li class="md-list-item"><router-link to="/first">Перша ліга</router-link><md-ink-ripple /></li>
+          <li class="md-list-item"><router-link to="/second">Друга ліга</router-link><md-ink-ripple /></li>
         </ul>
       </nav>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate esse necessitatibus beatae nobis, deserunt ut est fugit, tempora deleniti, eligendi commodi doloribus. Nemo, assumenda possimus, impedit inventore perferendis iusto!</p>
     </md-sidenav>
   </header>
 
