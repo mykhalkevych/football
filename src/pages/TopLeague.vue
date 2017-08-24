@@ -3,8 +3,8 @@
   <md-layout class="title-container">
       <h2>{{ title }}</h2>
       <md-select name="movie" id="movie" v-model="selected">
-        <md-option value="adult">Дорослі</md-option>
-        <md-option value="young">Юнаки</md-option>
+        <md-option value="adults">Дорослі</md-option>
+        <md-option value="youngs">Юнаки</md-option>
       </md-select>
     </md-layout>
     <md-tabs md-fixed>
@@ -21,10 +21,12 @@
           </md-table-header>
 
           <md-table-body>
+            <transition-group :duration="2000" appear>
             <md-table-row v-for="(row, index) in 5" :key="index">
               <md-table-cell>Dessert Name</md-table-cell>
               <md-table-cell v-for="(col, index) in 4" :key="index" md-numeric>10</md-table-cell>
             </md-table-row>
+            </transition-group>
           </md-table-body>
         </md-table>
       </md-tab>
@@ -62,6 +64,6 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 
 </style>

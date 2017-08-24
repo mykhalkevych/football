@@ -24,8 +24,9 @@
       </nav>
     </md-sidenav>
   </header>
-
-  <router-view></router-view>
+  <main>
+    <router-view></router-view>
+  </main>
 </div>
 </template>
 
