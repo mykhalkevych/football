@@ -1,0 +1,40 @@
+games: {
+	"0": {
+		"date":"24.08.2017",
+		"firstTeam": "",
+		"secondTeam": "",
+		"tournament": "topLeague",
+		"result": "2 - 0",
+		"statistics": {
+			"firstTeam": {
+				"goals": 2,
+				"redCard": 0,
+				"yellowCard": 2
+			},
+			"secondTeam": {
+				"goals": 2,
+				"redCard": 0,
+				"yellowCard": 2
+			}
+		}
+	},
+	"1": {
+		"date":"24.08.2017",
+		"firstTeam": "",
+		"secondTeam": "",
+		"tournament": "topLeague",
+		"result": "2 - 0",
+		"statistics": {
+			"firstTeam": {
+				"goals": 2,
+				"redCard": 0,
+				"yellowCard": 2
+			},
+			"secondTeam": {
+				"goals": 2,
+				"redCard": 0,
+				"yellowCard": 2
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+teams: {
+	"0": {
+		"name": "FC 'Dnister' Dolobiv",
+		"logo": "",
+		"league": "top",
+		"tournaments": {
+			"top": {
+				"matches": 8,
+				"points": 21,
+				"win": 7,
+				"draw": 0,
+				"defeat": 1
+			},
+			"cup": {
+				"matches": 8,
+				"points": 21,
+				"win": 7,
+				"draw": 0,
+				"defeat": 1
+			}
+		}
+	}
+}

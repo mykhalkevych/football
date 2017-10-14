@@ -1,12 +1,13 @@
 <template>
-  <md-layout md-flex-xsmall="100" md-flex-medium="50" md-flex-large="33">
+  <md-layout md-flex-xsmall="100" md-flex-medium="50" md-flex-large="33" md-flex-xlarge="25">
     <md-card>
       <md-card-media>
       <img :src="newItem.imgSrc" alt="new">
       </md-card-media>
 
       <md-card-header>
-        <div class="md-title">{{newItem.title}}</div>
+        <div class="md-title" >
+          <a href="#" @click.prevent="readDetail(idNew)">{{newItem.title}}</a></div>
       </md-card-header>
 
       <md-card-content>
@@ -39,7 +40,9 @@
         let newRef = news.child(id)
         newRef.once('value')
           .then(d => {
-            console.log(d.val())
+            console.log(this.$router)
+            this.$router.push({name: 'New', params: { id: id }})
+            console.log(d)
           })
       }
     }
