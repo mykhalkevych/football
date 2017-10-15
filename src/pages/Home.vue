@@ -8,8 +8,7 @@
 </template>
 
 <script>
-/* global firebase */
-
+import Database from '../store/FirebaseStore'
 import NewsItem from '../components/NewsItem'
 export default {
   name: 'hello',
@@ -23,8 +22,7 @@ export default {
     }
   },
   created () {
-    const db = firebase.database()
-    const news = db.ref().child('news')
+    const news = Database.getData('news')
 
     let query = news.orderByKey()
 

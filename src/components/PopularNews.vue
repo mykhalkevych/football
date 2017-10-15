@@ -26,11 +26,6 @@ export default {
       default: []
     }
   },
-  watch: {
-    '$route' (to, from) {
-      console.log(to, from)
-    }
-  },
   methods: {
     readDetail (id) {
       const db = firebase.database()
@@ -38,8 +33,8 @@ export default {
       let newRef = news.child(id)
       newRef.once('value')
       .then(d => {
-        console.log(this.$router)
-        this.$router.replace({name: 'New', params: { id: id }})
+        console.log(this.$route)
+        this.$router.push({path: `/news/${id}`})
         console.log(d)
       })
     }

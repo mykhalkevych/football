@@ -21,12 +21,10 @@
           </md-table-header>
 
           <md-table-body>
-            <transition-group :duration="2000" appear>
             <md-table-row v-for="(row, index) in 5" :key="index">
               <md-table-cell>Dessert Name</md-table-cell>
               <md-table-cell v-for="(col, index) in 4" :key="index" md-numeric>10</md-table-cell>
             </md-table-row>
-            </transition-group>
           </md-table-body>
         </md-table>
       </md-tab>
@@ -43,21 +41,21 @@
 <script>
   export default {
     name: 'top',
-    data () {
+    data: () => {
       let opt = [
         {
           label: 'Дорослі',
-          value: 'a'
+          value: 'adults'
         },
         {
           label: 'Юнаки',
-          value: 'Юнаки'
+          value: 'youngs'
         }
       ]
       return {
         title: 'Вища ліга',
         options: opt,
-        selected: 'adult'
+        selected: 'adults'
       }
     }
   }

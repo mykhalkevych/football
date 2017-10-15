@@ -41,7 +41,7 @@
         newRef.once('value')
           .then(d => {
             console.log(this.$router)
-            this.$router.push({name: 'New', params: { id: id }})
+            this.$router.push({path: `/news/${id}`})
             console.log(d)
           })
       }

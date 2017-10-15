@@ -25,16 +25,14 @@ export default {
   created () {
     const db = firebase.database()
     const news = db.ref().child('news')
-    const query = news.orderByChild('visited').limitToLast(4)
+    const query = news.orderByChild('visited').limitToLast(3)
 
     query.on('value', snap => {
-      console.log('snap2', snap.val())
-      snap.val().map((val, i) => {
-        if (val) {
-          val.id = i
-          this.popularNews.push(val)
-        }
-      })
+      let items = snap.val()
+      for (let i in items) {
+        items[i].id = i
+        this.popularNews.push(items[i])
+      }
     })
   }
 }

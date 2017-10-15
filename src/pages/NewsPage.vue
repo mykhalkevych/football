@@ -15,8 +15,8 @@
   </div>
 </template>
 <script>
-  /* global firebase */
   import Sidebar from '../components/Sidebar'
+  import Database from '../store/FirebaseStore'
 
   export default {
     name: 'newsItem',
@@ -28,9 +28,20 @@
         news: {}
       }
     },
+    watch: {
+      '$route' () {
+        const news = Database.getData('news')
+        const id = this.$route.params.id
+        let newRef = news.child(id)
+        newRef.once('value')
+        .then(data => {
+          console.log(data.val())
+          this.news = data.val()
+        })
+      }
+    },
     created () {
-      const db = firebase.database()
-      const news = db.ref().child('news')
+      const news = Database.getData('news')
       console.log(this.$route)
       const id = this.$route.params.id
       let newRef = news.child(id)
