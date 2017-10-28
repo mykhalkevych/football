@@ -16,7 +16,7 @@
 </template>
 <script>
   import Sidebar from '../components/Sidebar'
-  import Database from '../store/FirebaseStore'
+  import Database from '../shared/FirebaseStore'
 
   export default {
     name: 'newsItem',
@@ -30,25 +30,22 @@
     },
     watch: {
       '$route' () {
-        const news = Database.getData('news')
+        const news = Database.getRef('news')
         const id = this.$route.params.id
-        let newRef = news.child(id)
-        newRef.once('value')
+        let newRef = Database.getChild(id, news)
+        Database.getValue(newRef)
         .then(data => {
-          console.log(data.val())
-          this.news = data.val()
+          this.news = data
         })
       }
     },
     created () {
-      const news = Database.getData('news')
-      console.log(this.$route)
+      const news = Database.getRef('news')
       const id = this.$route.params.id
-      let newRef = news.child(id)
-      newRef.once('value')
+      let newRef = Database.getChild(id, news)
+      Database.getValue(newRef)
       .then(data => {
-        console.log(data.val())
-        this.news = data.val()
+        this.news = data
       })
     }
   }

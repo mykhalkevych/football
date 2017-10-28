@@ -21,7 +21,8 @@
   </md-layout>
 </template>
 <script>
-/* global firebase */
+  import Database from '../shared/FirebaseStore'
+
   export default {
     name: 'newItem',
     props: {
@@ -35,15 +36,13 @@
     },
     methods: {
       readDetail (id) {
-        const db = firebase.database()
-        const news = db.ref().child('news')
-        let newRef = news.child(id)
-        newRef.once('value')
-          .then(d => {
-            console.log(this.$router)
-            this.$router.push({path: `/news/${id}`})
-            console.log(d)
-          })
+        const news = Database.getRef('news')
+        let newRef = Database.getChild(id, news)
+        Database.getValue(newRef)
+        .then(data => {
+          Database.updateValue(newRef, 'visited', ++data.visited)
+        })
+        this.$router.push({path: `/news/${id}`})
       }
     }
   }

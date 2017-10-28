@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Database from '../store/FirebaseStore'
+import Database from '../shared/FirebaseStore'
 import NewsItem from '../components/NewsItem'
 export default {
   name: 'hello',
@@ -22,15 +22,10 @@ export default {
     }
   },
   created () {
-    const news = Database.getData('news')
-
+    const news = Database.getRef('news')
     let query = news.orderByKey()
-
-    query.on('value', snap => {
-      snap.forEach((s) => {
-        console.log('key', snap.val())
-      })
-      this.news = snap.val()
+    Database.getData(query, (data) => {
+      this.news = data
     })
   }
 }

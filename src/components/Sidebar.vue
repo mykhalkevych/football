@@ -7,7 +7,8 @@
   </div>
 </template>
 <script>
-/* global firebase */
+import Database from '../shared/FirebaseStore'
+
 import PopularNews from './PopularNews'
 
 export default {
@@ -23,15 +24,13 @@ export default {
   methods: {
   },
   created () {
-    const db = firebase.database()
-    const news = db.ref().child('news')
-    const query = news.orderByChild('visited').limitToLast(3)
-
-    query.on('value', snap => {
-      let items = snap.val()
-      for (let i in items) {
-        items[i].id = i
-        this.popularNews.push(items[i])
+    const news = Database.getRef('news')
+    let query = news.orderByChild('visited').limitToLast(4)
+    Database.getData(query, (newItems) => {
+      this.popularNews = []
+      for (let i in newItems) {
+        newItems[i].id = i
+        this.popularNews.push(newItems[i])
       }
     })
   }

@@ -16,8 +16,6 @@
   </div>
 </template>
 <script>
-/* global firebase */
-
 export default {
   name: 'PopularNews',
   props: {
@@ -28,15 +26,7 @@ export default {
   },
   methods: {
     readDetail (id) {
-      const db = firebase.database()
-      const news = db.ref().child('news')
-      let newRef = news.child(id)
-      newRef.once('value')
-      .then(d => {
-        console.log(this.$route)
-        this.$router.push({path: `/news/${id}`})
-        console.log(d)
-      })
+      this.$router.push({path: `/news/${id}`})
     }
   },
   created () {
